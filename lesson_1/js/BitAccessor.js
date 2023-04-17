@@ -33,6 +33,6 @@ class BitAccessor {
         this.typedArray[elIndex] =
             newBitVal === 1 ?
                 (1 << bitPos) | this.typedArray[elIndex] :
-                ~(1 << bitPos) & this.typedArray[elIndex]
+                ~(1 << bitPos) & this.typedArray[elIndex];
     }
 }
