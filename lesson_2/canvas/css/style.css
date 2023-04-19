@@ -1,0 +1,29 @@
+.wrapper {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.wrapper input[type=file] {
+	width: 350px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.wrapper canvas {
+	border: 1px solid #eee;
+	margin-bottom: 10px;
+}
+
+.wrapper .buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.wrapper .buttons__action__button {
+	cursor: pointer;
+}
+
+.wrapper .buttons__action_button_color_green {
+	color: green;
+}

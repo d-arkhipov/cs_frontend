@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="wrapper">
+    <canvas id="canvas"></canvas>
+
+    <div class="buttons">
+        <div class="buttons__file">
+            <input type="file" id="file" accept=".jpg, .jpeg, .png">
+        </div>
+
+        <div class="buttons__action">
+            <button class="buttons__action_button buttons__action_button_color_green" onclick="original();">Original</button>
+            <button class="buttons__action_button" onclick="grayscale();">Grayscale</button>
+            <button class="buttons__action_button" onclick="inverse();">Inverse</button>
+        </div>
+    </div>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
