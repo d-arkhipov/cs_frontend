@@ -29,7 +29,7 @@ function updateImage() {
     // img = document.createElement('img');
     img.src = URL.createObjectURL(file);
     img.onload = () => {
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        original();
     }
 }
 
@@ -42,7 +42,7 @@ function original() {
 }
 
 function grayscale() {
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    original();
 
     const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imgData.data;
@@ -59,7 +59,7 @@ function grayscale() {
 }
 
 function inverse() {
-    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    original();
 
     const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     const data = imgData.data;
