@@ -8,7 +8,7 @@ class Coder {
             { name: 'schema', data: schema }
         ].forEach(param => {
             if (!Array.isArray(param.data) || !param.data.length) {
-                throw new Error(`Required parameter "${param.name}" is not array or empty.`);
+                throw new Error(`Required parameter "${param.name}" is not an array or empty.`);
             }
         });
 
