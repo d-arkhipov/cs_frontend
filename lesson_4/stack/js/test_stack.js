@@ -19,7 +19,7 @@ describe('Stack', function() {
         assert.isOk(true);
     });
 
-    it('The head is equal 12', function() {
+    it('The head is equal to 12', function() {
         assert.equal(stack.head, 12);
     });
 
@@ -27,7 +27,7 @@ describe('Stack', function() {
         assert.equal(stack.pop(), 12);
     });
 
-    it('The head is equal 11', function() {
+    it('The head is equal to 11', function() {
         assert.equal(stack.head, 11);
     });
 
