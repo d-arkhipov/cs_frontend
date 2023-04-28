@@ -1,7 +1,7 @@
-function Stack(typedArray, maxSize) {
+function Stack(arrayConstructor, maxSize) {
     class Stack {
-        constructor(typedArray, maxSize) {
-            if (typeof typedArray !== 'function') {
+        constructor(arrayConstructor, maxSize) {
+            if (typeof arrayConstructor !== 'function') {
                 throw new Error('The first parameter should be a constructor.');
             }
 
@@ -9,7 +9,8 @@ function Stack(typedArray, maxSize) {
                 throw new Error('The second parameter should be a number.');
             }
 
-            this.stackTypedArray = new typedArray(maxSize);
+            this.stackArray = new arrayConstructor(maxSize);
+            this.isCommonArray = this.stackArray.constructor === Array;
             this.maxSize = maxSize;
             this.top = -1;
         }
@@ -19,11 +20,11 @@ function Stack(typedArray, maxSize) {
                 throw new Error('The stack is empty.');
             }
 
-            return this.stackTypedArray[this.top];
+            return this.stackArray[this.top];
         }
 
         push(val) {
-            if (typeof val !== 'number') {
+            if (!this.isCommonArray && typeof val !== 'number') {
                 throw new Error(`You can only add a number. "${typeof val}" given.`);
             }
 
@@ -31,7 +32,7 @@ function Stack(typedArray, maxSize) {
                 throw new Error('Can\'t push, the stack is full.');
             }
 
-            this.stackTypedArray[++this.top] = val;
+            this.stackArray[++this.top] = val;
         }
 
         pop() {
@@ -39,7 +40,7 @@ function Stack(typedArray, maxSize) {
                 throw new Error('Can\'t pop. The stack is empty.');
             }
 
-            return this.stackTypedArray[this.top--];
+            return this.stackArray[this.top--];
         }
 
         isEmpty() {
@@ -51,5 +52,5 @@ function Stack(typedArray, maxSize) {
         }
     }
 
-    return new Stack(typedArray, maxSize);
+    return new Stack(arrayConstructor, maxSize);
 }
