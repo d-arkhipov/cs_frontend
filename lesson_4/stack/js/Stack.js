@@ -5,8 +5,8 @@ function Stack(arrayConstructor, maxSize) {
                 throw new Error('The first parameter should be a constructor.');
             }
 
-            if (typeof maxSize !== 'number') {
-                throw new Error('The second parameter should be a number.');
+            if (typeof maxSize !== 'number' || maxSize < 0) {
+                throw new Error('The second parameter should be a positive number.');
             }
 
             this.stackArray = new arrayConstructor(maxSize);
