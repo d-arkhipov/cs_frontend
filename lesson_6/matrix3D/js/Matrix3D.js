@@ -10,7 +10,7 @@ class Matrix3D {
 
     set(axesValues, val) {
         if (!val || typeof val !== 'number') {
-            throw new Error(`The second parameter "val" is missed.`);
+            throw new Error(`The second parameter "val" should be a number.`);
         }
 
         this.#validate(axesValues, true);
@@ -24,8 +24,8 @@ class Matrix3D {
     }
 
     #getIndex({ x, y, z }) {
-        // (Кол-во строк * кол-во столбцов * номер плоскости) + номер строки * кол-во столбцов + номер столбца
-        return this.#axesSizes.y * this.#axesSizes.x * z + y * this.#axesSizes.x + x;
+        // (Номер строки * кол-во столбцов + номер столбца) * кол-во плоскостей + номер плоскости
+        return (y * this.#axesSizes.x + x) * this.#axesSizes.z + z;
     }
 
     #validate(coords, isFromMethod = false) {
