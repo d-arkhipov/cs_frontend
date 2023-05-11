@@ -24,13 +24,12 @@ class Matrix3D {
     }
 
     #getIndex({ x, y, z }) {
-        // (Номер строки * кол-во столбцов + номер столбца) * кол-во плоскостей + номер плоскости
-        return (y * this.#axesSizes.x + x) * this.#axesSizes.z + z;
+        return x * this.#axesSizes.x * (y + z * this.#axesSizes.y);
     }
 
     #validate(coords, isFromMethod = false) {
         ['x', 'y', 'z'].forEach(axis => {
-            if (!coords[axis] || typeof coords[axis] !== 'number' || coords[axis] < 0) {
+            if (typeof coords[axis] !== 'number' || coords[axis] < 0) {
                 throw new Error(`Axis "${axis}" value should be a positive number.`);
             }
 
