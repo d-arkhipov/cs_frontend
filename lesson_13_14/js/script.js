@@ -47,7 +47,7 @@ function calc(str) {
         throw new TypeError(`The parameter should be a string, "${typeof str}" given.`);
     }
 
-    return str.replace(/[(\d][\d( )+\-*\/%]+[\d)]/gm, (match) => eval(match));
+    return str.replace(/[(\d][\d( )+\-*\/%]+[\d)]/gm, (match) => Function(`return ${match}`)());
 }
 
 
